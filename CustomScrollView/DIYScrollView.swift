@@ -30,12 +30,11 @@ import UIKit
 
 class DIYScrollView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+  @IBAction func handlePan(_ recognizer: UIPanGestureRecognizer) {
+    let tranlation = recognizer.translation(in: self)
+    bounds.origin.y = bounds.origin.y - tranlation.y
+    
+    recognizer.setTranslation(CGPoint.zero, in: self)
+  }
 
 }
